@@ -1,6 +1,9 @@
 #pragma strict
 
 var speed:int;
+var lives:int;
+
+lives = 3;
 
 function Start () {
 
@@ -23,5 +26,27 @@ function Update () {
 	}
 	if(transform.position.y > BorderScript.topmost){
 		transform.position.y = BorderScript.bottommost;
-	}	
+	}
+	
+	if (lives==0){
+	
+		Destroy(this.gameObject);
+	}
+		
+}
+
+function OnTriggerEnter(other:Collider){
+
+	if(other.gameObject.tag == "Asteroid")
+	{
+		print(lives);
+		lives--;
+	}
+}
+
+function OnGUI(){
+
+	GUI.color = Color.red;
+	
+	GUI.Label(Rect(10,30,300,20),"Lives: " +lives);
 }
