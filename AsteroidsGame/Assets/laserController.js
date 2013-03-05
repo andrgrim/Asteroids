@@ -22,5 +22,6 @@ function OnTriggerEnter(other:Collider){
 	{
 		Destroy(this.gameObject);
 		Destroy(other.gameObject);
+		SpaceshipController.score++;
 	}
 }

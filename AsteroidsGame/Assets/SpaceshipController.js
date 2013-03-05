@@ -7,6 +7,8 @@ var lives:int;
 
 var laserPrefab:Rigidbody;
 
+static var score:int;
+
 lives = 10; 
 
 function Start () {
@@ -65,4 +67,5 @@ function OnGUI(){
 	
 	GUI.Label(Rect(10,30,300,20),"Lives: " +lives);
 	GUI.Label(Rect(10,40,300,20),"Speed: " +speed);
+	GUI.Label(Rect(10,50,300,20),"Score: " +score);
 }

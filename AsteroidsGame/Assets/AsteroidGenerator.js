@@ -2,10 +2,10 @@
 
 var asteroidPrefab:Rigidbody;
 var maxAsteroids:int;
+var i:int;
 
 function createAsteroids () {
-	if (GameObject.FindGameObjectsWithTag("Asteroid").Length < 5)
-	{
+
 	
 	var x:float;
 	var y:float;
@@ -16,16 +16,24 @@ function createAsteroids () {
 	//create a fish instance
 	
 	Instantiate(asteroidPrefab,Vector3(x,y,2),Quaternion.identity);
-	}
 }
 
 
 function Start () {
 
-	InvokeRepeating("createAsteroids",0,2.0);
+	for (i=0; i <= 5; i++){
+	
+		createAsteroids();
+	}
 
 }
 
 function Update () {
+
+	if (GameObject.FindGameObjectsWithTag("Asteroid").Length < 5){
+	
+		createAsteroids();
+	}
+	
 
 }
