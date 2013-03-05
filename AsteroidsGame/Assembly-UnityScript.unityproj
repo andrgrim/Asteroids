@@ -47,6 +47,7 @@
      <Compile Include="Assets\AsteroidController.js" />
      <Compile Include="Assets\AsteroidGenerator.js" />
      <Compile Include="Assets\BorderScript.js" />
+     <Compile Include="Assets\MenuGenerator.js" />
      <Compile Include="Assets\SpaceshipController.js" />
      <Compile Include="Assets\laserController.js" />
   </ItemGroup>
