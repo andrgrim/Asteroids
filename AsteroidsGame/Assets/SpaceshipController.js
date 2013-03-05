@@ -1,9 +1,13 @@
 #pragma strict
 
 var speed:int;
+var normalspeed:int;
+var turbospeed:int;
 var lives:int;
 
-lives = 3;
+var laserPrefab:Rigidbody;
+
+lives = 10; 
 
 function Start () {
 
@@ -32,7 +36,18 @@ function Update () {
 	
 		Destroy(this.gameObject);
 	}
+	
+	speed = normalspeed;
+	
+	if (Input.GetKey(KeyCode.Space)){
 		
+		speed = turbospeed;
+	}
+	
+	if (Input.GetKeyDown(KeyCode.LeftControl)){
+	
+		Instantiate(laserPrefab,transform.position,transform.rotation);
+	}
 }
 
 function OnTriggerEnter(other:Collider){
@@ -49,4 +64,5 @@ function OnGUI(){
 	GUI.color = Color.red;
 	
 	GUI.Label(Rect(10,30,300,20),"Lives: " +lives);
+	GUI.Label(Rect(10,40,300,20),"Speed: " +speed);
 }
