@@ -10,7 +10,7 @@ function createAsteroids () {
 	var x:float;
 	var y:float;
 	
-	x = Random.Range(-10,10);
+	x = 0;
 	y = Random.Range(-10,10);
 	
 	//create a fish instance

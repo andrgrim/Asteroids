@@ -1,16 +1,23 @@
 #pragma strict
 
-var direction:int;
-
+var direction:float;
+var goingleft:boolean;
 
 
 function Start () {
 
-	direction = Mathf.Round(Random.Range(1,2));
+	direction = Mathf.Round(Random.Range(1,3));
 	print(direction);
 	
+	if(direction==1){
 	
-
+		goingleft = true;
+		transform.position.x = BorderScript.rightmost;
+	}
+	else{
+		goingleft = false;
+		transform.position.x = BorderScript.leftmost;
+	}
 }
 
 
@@ -21,9 +28,9 @@ function Update () {
 
 	if (direction == 1){
 		
-		transform.Translate(Vector3.left*10*Time.deltaTime,Space.World);
+		transform.Translate(Vector3.right*-10*Time.deltaTime,Space.World);
 	}
-	if (direction == 2){
+	else{
 		
 		transform.Translate(Vector3.right*10*Time.deltaTime,Space.World);
 	}
@@ -34,10 +41,4 @@ function Update () {
 	if(transform.position.x < BorderScript.leftmost){
 		Destroy(this.gameObject);
 	}		
-	if(transform.position.y < BorderScript.bottommost){
-		Destroy(this.gameObject);
-	}
-	if(transform.position.y > BorderScript.topmost){
-		Destroy(this.gameObject);
-	}
 }
